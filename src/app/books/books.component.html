@@ -1,0 +1,12 @@
+<div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h5>Kitap Listesi</h5>
+        <ul>
+          <li *ngFor="let books of books_get">
+            {{books.id}} | {{books.writer}} | {{books.book_name}}
+          </li>
+        </ul>
+      </div>
+    </div>
