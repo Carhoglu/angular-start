@@ -5,9 +5,10 @@ import { AppComponent } from './app.component';
 import { LibraryComponent } from './library/library.component';
 import { BooksComponent } from './books/books.component';
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
-const appRoutes : Routes = [
- { path: '' ,redirectTo :'library' , pathMatch : 'full'},
+const appRoutes: Routes = [
+ { path: '' , redirectTo : 'library' , pathMatch : 'full'},
  { path: 'library' , component : LibraryComponent },
  { path: 'books' , component : BooksComponent }
 ];
@@ -20,7 +21,8 @@ const appRoutes : Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

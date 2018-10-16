@@ -10,3 +10,37 @@
         </ul>
       </div>
     </div>
+    <form (ngSubmit)="onSubmit()" #f="ngForm">
+      <div ngModelGroup="bookData" #bookData="ngModelGroup">
+        <span *ngIf="!book_id.valid ">Kitap id giriniz </span><br> <!--   && (book_id.touched) -->
+        <input type="text" class="form-control" ngModel name="book_id" required #book_id="ngModel" pattern="^[1-9]+[0-9]*$"><br>
+        <span *ngIf="!book_writer.valid">Yazar ismi giriniz </span><br>
+        <input type="text" class="form-control" ngModel name="book_writer" required #book_writer="ngModel"><!-- required  email -->
+        <br>
+        <span *ngIf="!book_name.valid">Kitap ismi giriniz </span><br>
+        <input type="text" class="form-control" ngModel name="book_name" required #book_name="ngModel">
+      </div>
+      <span *ngIf="bookData.invalid">Yukarıdaki bilgileri giriniz</span><br><br>
+
+      <select [(value)]="defaultSelect">
+        <option value="kayitli">Kayıtlı</option>
+        <option value="kayitsiz">Kayıtsız</option>
+      </select>
+      <pre class="tab"></pre>
+      <!-- <label>Radio Button</label>
+      <label class="form-check-inline">
+        <input class="form-check-input" type="radio" name="mode" [value]="true">
+      </label>
+      <label class="form-check-inline">
+        <input class="form-check-input" type="radio" name="mode" [value]="false">
+      </label> -->
+      <button type="submit" (click)="setVariables()">Variables Setting</button>
+      <pre class="tab"></pre>
+      <button type="submit" (click)="patchingVariables()">Variables Patching</button>
+      <pre class="tab"></pre>
+      <button type="submit" [disabled]="!f.valid" (click)="onSubmitData()">Gönder</button>
+    </form>
+    <div *ngIf="temp">
+      <h5>Girilen Data</h5>
+      {{book_id_}} {{book_writer_}} {{book_name_}}
+    </div>
