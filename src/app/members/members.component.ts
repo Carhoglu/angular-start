@@ -51,6 +51,8 @@ export class MembersComponent implements OnInit {
 
   onSubmit() {
     console.log(this.reactiveForm);
+    // Reactive Form resetting
+    this.reactiveForm.reset();
   }
 
   onAddStatus() {
