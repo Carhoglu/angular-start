@@ -1,0 +1,26 @@
+<div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <form [formGroup]="reactiveForm" (ngSubmit)=onSubmit()>
+          <div formGroupName="memberData">
+            <span *ngIf="!reactiveForm.get('memberData.member_name').valid">Üye adını giriniz :</span><br>
+            <input type="text" formControlName="member_name"><br>
+            <span *ngIf="!reactiveForm.get('memberData.member_surname').valid">Üye soyadını giriniz :</span><br>
+            <input type="text" formControlName="member_surname"><br>
+          </div>
+          <span *ngIf="!reactiveForm.valid && reactiveForm.touched">Lütfen verileri giriniz</span><br>
+          <button type="submit">Kaydet</button><br><br>
+          <div formArrayName="statuses">
+            <h6>Üye durumları</h6>
+            <pre class="tab"></pre>
+            <button (click)="onAddStatus()">Üye durumu ekle</button>
+            <div *ngFor="let status of reactiveForm.get('statuses').controls ; let i = index">
+              <input type="text" [formControlName]="i">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
