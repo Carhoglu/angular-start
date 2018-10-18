@@ -10,6 +10,9 @@ import { MembersComponent } from './members/members.component';
 import { PipesComponent } from './pipes/pipes.component';
 import { ShortenPipe } from './pipes/shorten.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
+import { HttpComponent } from './http/http.component';
+import { ServerService } from './http/server.service';
+import { HttpModule } from '@angular/http';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'library', pathMatch: 'full' },
@@ -17,6 +20,7 @@ const appRoutes: Routes = [
   { path: 'books', component: BooksComponent },
   { path: 'members', component: MembersComponent },
   { path: 'pipes', component: PipesComponent },
+  { path: 'http',component:HttpComponent },
   { path: '**', component: LibraryComponent }
 ];
 
@@ -27,6 +31,7 @@ const appRoutes: Routes = [
     BooksComponent,
     MembersComponent,
     PipesComponent,
+    HttpComponent,
     ShortenPipe,
     FilterPipe
   ],
@@ -34,9 +39,10 @@ const appRoutes: Routes = [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [ServerService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
