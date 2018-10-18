@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MembersComponent } from './members/members.component';
 import { PipesComponent } from './pipes/pipes.component';
 import { ShortenPipe } from './pipes/shorten.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'library', pathMatch: 'full' },
@@ -26,7 +27,8 @@ const appRoutes: Routes = [
     BooksComponent,
     MembersComponent,
     PipesComponent,
-    ShortenPipe
+    ShortenPipe,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
