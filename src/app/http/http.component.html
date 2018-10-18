@@ -4,6 +4,7 @@
       <input type="text" #server>
       <button type="submit" (click)=onAddServer(server.value)>Add Server</button>
       <button type="submit" (click)=onSave()>Save Server</button>
+      <button type="submit" (click)=onGetServer()>Get Server</button>
       <ul class="list-group">
         <li class="list-group-item" *ngFor="let server of servers"> {{server.name}} (ID: {{server.id}}) </li>
       </ul>
