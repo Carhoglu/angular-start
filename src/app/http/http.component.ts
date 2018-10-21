@@ -48,10 +48,8 @@ export class HttpComponent implements OnInit {
 
   onGetServer() {
     this.serverService.getServer()
-    .subscribe( ( response : Response )=> {
-      const  data =response.json();
-       console.log(response);
-    },
+    .subscribe( ( servers : any [] )=> 
+    console.log(servers),
     (error) => console.log(error))
     }
 }
