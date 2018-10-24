@@ -8,6 +8,8 @@ import { Response } from '@angular/http';
   styleUrls: ['./http.component.css']
 })
 export class HttpComponent implements OnInit {
+  
+  /* appName = this.serverService.getAppName(); */
 
   servers = [
     {
@@ -49,7 +51,9 @@ export class HttpComponent implements OnInit {
   onGetServer() {
     this.serverService.getServer()
     .subscribe( ( servers : any [] )=> 
-    console.log(servers),
+    this.servers=servers,
     (error) => console.log(error))
     }
+
+  
 }
