@@ -16,40 +16,43 @@ export class ServerService {
 
   getServer() {
     /*  return this.http.get('https://angular-udemy-http-ca329.firebaseio.com/data.json'); */
-/* 
-       return this.http.get('https://angular-udemy-http-ca329.firebaseio.com/data.json')
-       .map(
-          (response: Response) => {
-            const data = response.json();
-            for(const server of data) {
-              server.name = 'Fethed '+ server.name;
-            }
-            return data;        //returned data 
-          }
-        ); */
-  
-    // Error  Handling  catch
-        return this.http.get('https://angular-udemy-http-ca329.firebaseio.com/data')
-          .map(
-            (response: Response) => {
-              const data = response.json();
-              for (const server of data) {
-                server.name = 'Fethed ' + server.name;
+    
+  /*          return this.http.get('https://angular-udemy-http-ca329.firebaseio.com/data.json')
+           .map(
+              (response: Response) => {
+                const data = response.json();
+                for(const server of data) {
+                  server.name = 'Fethed '+ server.name;
+                }
+                return data;        //returned data 
               }
-              return data;
-            }
-          )
-          .catch((error: Response) => {
-            console.log(error);
-            return Observable.throw('Error json');
-          });
-  }
-
-/*   // Async Pipe with 
+            );
+            } */
+    // Error  Handling  catch
+            return this.http.get('https://angular-udemy-http-ca329.firebaseio.com/data.json')
+              .map(
+                (response: Response) => {
+                  const data = response.json();
+                  for (const server of data) {
+                    server.name = 'Fethed ' + server.name;
+                  }
+                  return data;
+                }
+              )
+              .catch((error: Response) => {
+                console.log(error);
+                return Observable.throw('Error json');
+              });
+      }
+    
+ // Async Pipe with 
   getAppName() {
-    return this.http.get('https://angular-udemy-http-ca329.firebaseio.com/data.json')
+    return this.http.get('https://angular-udemy-http-ca329.firebaseio.com/data/appName.json')
       .map((response: Response) => {
         return response.json();
-      });
-  } */
+      }
+      );
+  }
+ 
+
 }

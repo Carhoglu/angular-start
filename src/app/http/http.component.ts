@@ -9,7 +9,7 @@ import { Response } from '@angular/http';
 })
 export class HttpComponent implements OnInit {
   
-  /* appName = this.serverService.getAppName(); */
+  appName = this.serverService.getAppName();
 
   servers = [
     {
@@ -34,6 +34,8 @@ export class HttpComponent implements OnInit {
   constructor(private serverService : ServerService) { }
 
   ngOnInit() {
+
+    console.log('app_name : ' + this.appName);
   }
 
   private generateId() {
@@ -50,9 +52,10 @@ export class HttpComponent implements OnInit {
 
   onGetServer() {
     this.serverService.getServer()
-    .subscribe( ( servers : any [] )=> 
-    this.servers=servers,
-    (error) => console.log(error))
+    .subscribe(
+      (servers: any[]) => this.servers = servers,
+      (error) => console.log(error)
+    );
     }
 
   

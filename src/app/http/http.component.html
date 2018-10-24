@@ -5,8 +5,7 @@
       <button type="submit" (click)=onAddServer(server.value)>Add Server</button>
       <button type="submit" (click)=onSave()>Save Server</button>
       <button type="submit" (click)=onGetServer()>Get Server</button>
-      <button type="submit" (click)=onGetAppname()>Get AppName</button>
-      <h4>{{appName | async}}</h4>
+      <h4>{{appName |async}}</h4>
       <ul class="list-group">
         <li class="list-group-item" *ngFor="let server of servers"> {{server.name}} (ID: {{server.id}}) </li>
       </ul>
