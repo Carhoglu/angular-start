@@ -29,7 +29,7 @@ export class ServerService {
         ); */
   
     // Error  Handling  catch
-    /*     return this.http.get('https://angular-udemy-http-ca329.firebaseio.com/data')
+        return this.http.get('https://angular-udemy-http-ca329.firebaseio.com/data')
           .map(
             (response: Response) => {
               const data = response.json();
@@ -41,23 +41,8 @@ export class ServerService {
           )
           .catch((error: Response) => {
             console.log(error);
-            return Observable.throw(error);
-          }); */
-
-    // Error return
-    return this.http.get('https://angular-udemy-http-ca329.firebaseio.com/data.json')
-      .map(
-        (response: Response) => {
-          const data = response.json();
-          for (const server of data) {
-            server.name = 'Fethed ' + server.name;
-          }
-          return data;
-        });
-     /*  .catch((error: Response) => {
-        console.log(error);
-        return Observable.throw('Error json');
-      }); */
+            return Observable.throw('Error json');
+          });
   }
 
 /*   // Async Pipe with 
