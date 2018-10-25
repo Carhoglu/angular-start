@@ -25,6 +25,7 @@ const appRoutes: Routes = [
   { path: 'pipes', component: PipesComponent },
   { path: 'http',component:HttpComponent },
   { path: 'signup',component:SignupComponent },
+  { path: 'signin',component: SigninComponent},
   { path: '**', component: LibraryComponent }
 ];
 
