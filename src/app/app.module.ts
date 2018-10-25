@@ -13,6 +13,9 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { HttpComponent } from './http/http.component';
 import { ServerService } from './http/server.service';
 import { HttpModule } from '@angular/http';
+import { SigninComponent } from './signin/signin.component';
+import { SignupComponent } from './signup/signup.component';
+import { AuthService } from './auth.service';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'library', pathMatch: 'full' },
@@ -21,6 +24,7 @@ const appRoutes: Routes = [
   { path: 'members', component: MembersComponent },
   { path: 'pipes', component: PipesComponent },
   { path: 'http',component:HttpComponent },
+  { path: 'signup',component:SignupComponent },
   { path: '**', component: LibraryComponent }
 ];
 
@@ -33,7 +37,9 @@ const appRoutes: Routes = [
     PipesComponent,
     HttpComponent,
     ShortenPipe,
-    FilterPipe
+    FilterPipe,
+    SigninComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +48,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     HttpModule
   ],
-  providers: [ServerService],
+  providers: [ServerService,AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
